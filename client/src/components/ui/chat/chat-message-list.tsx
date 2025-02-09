@@ -11,9 +11,9 @@ interface ChatMessageListProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const ChatMessageList = React.forwardRef<HTMLDivElement, ChatMessageListProps>(
-    ({ className, children, scrollRef, isAtBottom, scrollToBottom, disableAutoScroll, ...props }) => {
+    ({ className, children, scrollRef, isAtBottom, scrollToBottom, disableAutoScroll, ...props }, ref) => {
         return (
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full" ref={ref}>
                 <div
                     className={`flex flex-col w-full h-full p-4 overflow-y-auto ${className}`}
                     ref={scrollRef}
