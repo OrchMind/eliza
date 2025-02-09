@@ -1,0 +1,8 @@
+{
+    "name": "@orchmind/setup",
+    "version": "0.0.1",
+    "scripts": {
+        "preinit": "chmod +x ./init.sh",
+        "init": "./init.sh"
+    }
+}

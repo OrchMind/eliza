@@ -773,6 +773,10 @@ importers:
         specifier: 4.2.10
         version: 4.2.10(typedoc@0.26.11(typescript@5.7.3))
 
+  infrastructure/pg: {}
+
+  infrastructure/setup: {}
+
   packages/adapter-mongodb:
     dependencies:
       '@elizaos/core':

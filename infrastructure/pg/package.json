@@ -1,0 +1,14 @@
+{
+    "name": "@orchmind/pg",
+    "version": "0.0.1",
+    "scripts": {
+        "docker:build": "./scripts/build.sh",
+        "docker:up": "./scripts/up.sh",
+        "docker:down": "./scripts/down.sh",
+        "postdocker:down": "rm -rf ./.docker",
+        "docker:stop": "./scripts/stop.sh",
+        "docker:logs": "./scripts/logs.sh",
+        "docker:restart": "./scripts/restart.sh",
+        "docker:ps": "./scripts/ps.sh"
+    }
+}
