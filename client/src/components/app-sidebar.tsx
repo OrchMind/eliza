@@ -28,6 +28,7 @@ export function AppSidebar() {
     });
 
     const agents = query?.data?.agents;
+    const isPending = query?.isPending
 
     return (
         <Sidebar>
@@ -60,11 +61,11 @@ export function AppSidebar() {
                     <SidebarGroupLabel>Agents</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {query?.isPending ? (
+                            {isPending ? (
                                 <div>
                                     {Array.from({ length: 5 }).map(
                                         (_, _index) => (
-                                            <SidebarMenuItem key={"skeleton-item"}>
+                                            <SidebarMenuItem key={`skeleton-item-${_index}`}>
                                                 <SidebarMenuSkeleton />
                                             </SidebarMenuItem>
                                         )
