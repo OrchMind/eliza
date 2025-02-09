@@ -1016,24 +1016,19 @@ export class PostgresDatabaseAdapter
                         SELECT
                             embedding,
                             COALESCE(
-                                content->>$2,
+                                LEFT(content->>$2, 255),
                                 ''
                             ) as content_text
                         FROM memories
                         WHERE type = $3
                         AND content->>$2 IS NOT NULL
+                        AND LENGTH(content->>$2) <= 255
                     )
                     SELECT
                         embedding,
-                        levenshtein(
-                            $1,
-                            content_text
-                        ) as levenshtein_score
+                        levenshtein_less_equal($1, content_text, $5) as levenshtein_score
                     FROM content_text
-                    WHERE levenshtein(
-                        $1,
-                        content_text
-                    ) <= $5  -- Add threshold check
+                    WHERE levenshtein_less_equal(LEFT($1, 255), content_text, $5) <= $5
                     ORDER BY levenshtein_score
                     LIMIT $4
                 `;
