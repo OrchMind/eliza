@@ -14,3 +14,7 @@ export const moment = dayjs;
 export const formatAgentName = (name: string) => {
     return name.substring(0, 2);
 };
+
+export const getColorScheme = () => {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
