@@ -1,3 +1,6 @@
+import {Label} from "@/components/ui/label";
+import {ThemeToggle} from "@/components/ui/settings/theme-toggle";
+import {Switch} from "@/components/ui/switch";
 import { useQuery } from "@tanstack/react-query";
 import info from "@/lib/info.json";
 import {
@@ -107,16 +110,20 @@ export function AppSidebar() {
                             target="_blank"
                         >
                             <SidebarMenuButton>
-                                <Book /> Documentation
+                                <Book/> Documentation
                             </SidebarMenuButton>
                         </NavLink>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                         <SidebarMenuButton disabled>
-                            <Cog /> Settings
+                            <Cog/> Settings
                         </SidebarMenuButton>
                     </SidebarMenuItem>
-                    <ConnectionStatus />
+
+                    <SidebarMenuItem>
+                        <ThemeToggle/>
+                    </SidebarMenuItem>
+                    <ConnectionStatus/>
                 </SidebarMenu>
             </SidebarFooter>
         </Sidebar>
